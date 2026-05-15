@@ -1,0 +1,109 @@
+site_name: "Docker Modular — Documentación Oficial"
+site_description: "Infraestructura Docker limpia, modular, reproducible y diseñada para docencia"
+site_author: "Mario Alvarado"
+repo_name: "docker-modular-docs"
+repo_url: "https://github.com/tuusuario/docker-modular-docs"
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.tabbed
+  - pymdownx.emoji
+
+plugins:
+  - search
+  - tags
+
+nav:
+  - Inicio:
+      - Introducción: index.md
+      - Objetivos: intro/objetivos.md
+      - Requisitos previos: intro/requisitos.md
+
+  - Arquitectura:
+      - Visión general: arquitectura/vision.md
+      - Diagrama: arquitectura/diagrama.md
+      - Carpetas estándar: arquitectura/carpetas.md
+      - Servicios base: arquitectura/servicios-base.md
+      - Principios de diseño: arquitectura/principios.md
+
+  - Scripts Reproducibles:
+      - Introducción: scripts/index.md
+      - infra-up.sh: scripts/infra-up.md
+      - infra-down.sh: scripts/infra-down.md
+      - infra-rebuild.sh: scripts/infra-rebuild.md
+      - stacks-clean.sh: scripts/stacks-clean.md
+
+  - Pedagogía:
+      - Modelo docente: pedagogia/modelo.md
+      - Buenas prácticas docentes: pedagogia/buenas-practicas-docente.md
+      - Buenas prácticas estudiantes: pedagogia/buenas-practicas-estudiante.md
+      - Errores comunes: pedagogia/errores.md
+
+  - Manuales:
+      - Manual Estudiantes: manuales/estudiantes.md
+      - Guía Docente: manuales/docente.md
+      - Guía Rápida: manuales/guia-rapida.md
+
+  - Laboratorios:
+      - Lab 1 — Infraestructura + Primer Stack: labs/lab1.md
+      - Lab 2 — Persistencia: labs/lab2.md
+      - Lab 3 — Redes: labs/lab3.md
+      - Lab 4 — Traefik Reverse Proxy: labs/lab4.md
+      - Lab 5 — Seguridad Docker: labs/lab5.md
+      - Lab 6 — Proyecto Final: labs/lab6.md
+      - Bonus — IA PRO (Ollama + OpenWebUI): labs/lab-bonus-ia.md
+
+  - Whitepaper Técnico:
+      - Introducción: whitepaper/intro.md
+      - Justificación técnica: whitepaper/justificacion.md
+      - Patrones de diseño: whitepaper/patrones.md
+      - Riesgos mitigados: whitepaper/riesgos.md
+      - Reproducibilidad: whitepaper/reproducibilidad.md
+      - Escalabilidad: whitepaper/escalabilidad.md
+      - Aplicación docente: whitepaper/docencia.md
+      - Conclusiones: whitepaper/conclusiones.md
+
+  - Buenas Prácticas:
+      - Seguridad: buenas-practicas/seguridad.md
+      - Redes: buenas-practicas/redes.md
+      - Persistencia: buenas-practicas/persistencia.md
+      - Logs y debugging: buenas-practicas/logs.md
+      - Limpieza: buenas-practicas/limpieza.md
+
+  - Apéndices:
+      - Glosario: apendices/glosario.md
+      - FAQ: apendices/faq.md
+      - Troubleshooting: apendices/troubleshooting.md
+      - Recursos externos: apendices/recursos.md
+
+  - Despliegue:
+      - Dockerfile para documentación: despliegue/dockerfile.md
+      - Compose para documentación: despliegue/compose.md
+      - Publicación en GitHub Pages: despliegue/github-pages.md

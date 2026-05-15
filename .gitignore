@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# MKDocs build
+site/
+
+# Docker
+*.log
+
+# Editor files
+*.swp
+*.swo
+.DS_Store
+Dockerfile
+docker-compose.yml
