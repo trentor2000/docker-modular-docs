@@ -46,51 +46,28 @@ Los contenedores:
 
 Tu entorno está organizado así:
 
-text
-
+```text
 /opt/                               ← Infraestructura base
  ├── dockge/
  ├── portainer/
  ├── watchtower/
  ├── headscale/
  └── traefik/
-
- /home/usuario/dockerdata/          ← Datos y stacks
+/home/usuario/dockerdata/ ← Datos y stacks
  ├── stacks/
- │   ├── app1/docker-compose.yml
- │   ├── app2/docker-compose.yml
- │   └── ...
+ │ ├── app1/docker-compose.yml
+ │ ├── app2/docker-compose.yml
+ │ └── ...
  ├── ai/
  ├── redes/
  └── seguridad/
 
- /home/usuario/dockerdata/infra/    ← Scripts de infraestructura
-     ├── infra-up.sh
-     ├── infra-down.sh
-     ├── infra-rebuild.sh
-     └── stacks-clean.sh
-
-/opt/                               ← Infraestructura base
- ├── dockge/
- ├── portainer/
- ├── watchtower/
- ├── headscale/
- └── traefik/
-
- /home/usuario/dockerdata/          ← Datos y stacks
- ├── stacks/
- │   ├── app1/docker-compose.yml
- │   ├── app2/docker-compose.yml
- │   └── ...
- ├── ai/
- ├── redes/
- └── seguridad/
-
- /home/usuario/dockerdata/infra/    ← Scripts de infraestructura
-     ├── infra-up.sh
-     ├── infra-down.sh
-     ├── infra-rebuild.sh
-     └── stacks-clean.sh
+/home/usuario/dockerdata/infra/ ← Scripts de infraestructura
+ ├── infra-up.sh
+ ├── infra-down.sh
+ ├── infra-rebuild.sh
+ └── stacks-clean.sh 
+```
 
 Esta arquitectura te permite trabajar sin romper nada y reconstruir todo en segundos.
 
