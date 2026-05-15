@@ -18,7 +18,7 @@ Este manual te enseña a:
 
 Todo basado en la arquitectura modular del curso: **Infraestructura base → Dockge → Stacks → Datos persistentes**
 
-# 🧱 1. ¿Qué es Docker?
+## 🧱 1. ¿Qué es Docker?
 
 Docker es una plataforma que permite ejecutar aplicaciones dentro de **contenedores**, que son entornos aislados, ligeros y reproducibles.
 
@@ -42,7 +42,7 @@ Los contenedores:
 | **Red**        | Comunicación entre contenedores |
 | **Compose**    | Archivo que define un stack     |
 
-# 🧩 2. Arquitectura que usarás en este curso
+## 🧩 2. Arquitectura que usarás en este curso
 
 Tu entorno está organizado así:
 
@@ -71,7 +71,7 @@ Tu entorno está organizado así:
 
 Esta arquitectura te permite trabajar sin romper nada y reconstruir todo en segundos.
 
-# 🟦 3. Infraestructura base (lo que siempre debe estar arriba)
+## 🟦 3. Infraestructura base (lo que siempre debe estar arriba)
 
 Servicios esenciales:
 
@@ -101,7 +101,7 @@ bash
 ./infra-down.sh
 ```
 
-# 🟩 4. Cómo crear tu primer stack
+## 🟩 4. Cómo crear tu primer stack
 
 ### Paso 1 — Entra a Dockge
 
@@ -139,7 +139,7 @@ text
 
 Botón **Deploy**
 
-# 🟧 5. Cómo ver tus contenedores
+## 🟧 5. Cómo ver tus contenedores
 
 ### Opción 1 — Portainer
 
@@ -169,7 +169,7 @@ bash
 docker ps
 ```
 
-# 🟥 6. Cómo limpiar tu entorno si algo sale mal
+## 🟥 6. Cómo limpiar tu entorno si algo sale mal
 
 Si un stack queda roto, incompleto o huérfano:
 
@@ -189,7 +189,7 @@ Este script elimina:
 
 Sin tocar la infraestructura base.
 
-# 🟫 7. Cómo reconstruir TODO desde cero
+## 🟫 7. Cómo reconstruir TODO desde cero
 
 Si tu entorno queda muy dañado:
 
@@ -207,7 +207,7 @@ Esto:
 
 3. la reconstruye limpia
 
-# 🟪 8. Buenas prácticas para estudiantes
+## 🟪 8. Buenas prácticas para estudiantes
 
 - No edites contenedores desde Portainer
 
@@ -227,7 +227,7 @@ Esto:
 
 - No modifiques `/opt` manualmente
 
-# 🧠 9. Preguntas frecuentes
+## 🧠 9. Preguntas frecuentes
 
 ### ✔ ¿Puedo borrar un contenedor sin miedo?
 
