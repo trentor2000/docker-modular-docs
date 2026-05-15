@@ -51,6 +51,9 @@ nav:
       - Diagrama: arquitectura/diagrama.md
       - Carpetas estándar: arquitectura/carpetas.md
       - Servicios base: arquitectura/servicios-base.md
+      - Stacks (docker-compose.yml): arquitectura/stacks.md
+      - Apps del usuario: arquitectura/apps.md
+      - Datos persistentes: arquitectura/datos.md
       - Principios de diseño: arquitectura/principios.md
 
   - Scripts Reproducibles:
@@ -59,6 +62,11 @@ nav:
       - infra-down.sh: scripts/infra-down.md
       - infra-rebuild.sh: scripts/infra-rebuild.md
       - stacks-clean.sh: scripts/stacks-clean.md
+      - dockge.sh: scripts/dockge.sh.md
+      - portainer.sh: scripts/portainer.sh.md
+      - watchtower.sh: scripts/watchtower.sh.md
+      - headscale.sh: scripts/headscale.sh.md
+      - traefik.sh: scripts/traefik.sh.md
 
   - Pedagogía:
       - Modelo docente: pedagogia/modelo.md
@@ -102,8 +110,11 @@ nav:
       - FAQ: apendices/faq.md
       - Troubleshooting: apendices/troubleshooting.md
       - Recursos externos: apendices/recursos.md
+      - Instalación Docker Ubuntu: anexos/instalacion-docker-ubuntu.md
+      - Instalación Docker WSL2: anexos/instalacion-docker-wsl2.md
 
   - Despliegue:
       - Dockerfile para documentación: despliegue/dockerfile.md
       - Compose para documentación: despliegue/compose.md
       - Publicación en GitHub Pages: despliegue/github-pages.md
+

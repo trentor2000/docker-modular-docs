@@ -2,3 +2,8 @@
 
 Elimina contenedores, redes y volúmenes huérfanos.
 
+```bash
+
+```
+
+
