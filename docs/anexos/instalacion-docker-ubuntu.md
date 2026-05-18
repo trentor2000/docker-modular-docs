@@ -44,7 +44,12 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 # 🧩 3. Agregar el repositorio oficial de Docker
 
 ```bash
-echo \  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \  https://download.docker.com/linux/ubuntu \  $(lsb_release -cs) stable" | \  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+  https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
 ```
 
 # 🧩 4. Instalar Docker Engine
