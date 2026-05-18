@@ -75,8 +75,8 @@ nav:
       - Errores comunes: pedagogia/errores.md
 
   - Manuales:
-      - Manual Estudiantes: manuales/estudiantes.md
-      - Guía Docente: manuales/docente.md
+      - Manual Estudiantes: manuales/guia-estudiantes.md
+      - Guía Docente: manuales/guia-docente.md
       - Guía Rápida: manuales/guia-rapida.md
 
   - Laboratorios:
@@ -104,6 +104,7 @@ nav:
       - Persistencia: buenas-practicas/persistencia.md
       - Logs y debugging: buenas-practicas/logs.md
       - Limpieza: buenas-practicas/limpieza.md
+      - Auditoría de Infraestructura: buenas-practicas/auditoria.md
 
   - Apéndices:
       - Glosario: apendices/glosario.md
