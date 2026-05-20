@@ -47,6 +47,7 @@ nav:
       - Requisitos previos: intro/requisitos.md
 
   - Arquitectura:
+      - Introducción: arquitectura/index.md
       - Visión general: arquitectura/vision.md
       - Diagrama: arquitectura/diagrama.md
       - Carpetas estándar: arquitectura/carpetas.md
@@ -60,6 +61,7 @@ nav:
       - Introducción: scripts/index.md
       - infra-up.sh: scripts/infra-up.md
       - infra-down.sh: scripts/infra-down.md
+      - infra-status.sh: scripts/infra-status.md
       - infra-rebuild.sh: scripts/infra-rebuild.md
       - stacks-clean.sh: scripts/stacks-clean.md
       - dockge.sh: scripts/dockge.sh.md
