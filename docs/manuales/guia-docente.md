@@ -209,7 +209,7 @@ Esto garantiza **reproducibilidad total**.
 
 👉 **Proyecto final**
 
-# 🧪 5. Laboratorios del curso (solo títulos + propósito)
+# 🧪 5. Laboratorios del curso
 
 ## **Laboratorio 1 — Infraestructura + Primer Stack**
 
