@@ -1,6 +1,6 @@
 # 📐 Arquitectura Docker Modular
 
-### Infraestructura limpia, reproducible y diseñada para docencia
+**Infraestructura limpia, reproducible y diseñada para docencia**
 
 La arquitectura Docker Modular organiza el entorno en **capas claras**, separando infraestructura del sistema, aplicaciones del usuario, definiciones de servicios y scripts de automatización.
 Este diseño permite:
@@ -15,7 +15,7 @@ Este diseño permite:
 
 - mantenimiento sencillo
 
-# 🧱 Principios de diseño
+### 🧱 Principios de diseño
 
 - **Separación total de responsabilidades** `/opt` para infraestructura base, `/dockerdata` para el usuario.
 
@@ -31,7 +31,7 @@ Este diseño permite:
 - **Escalabilidad** 
   Puedes agregar categorías y servicios sin romper nada.
 
-# 🗂️ Estructura general (versión simplificada)
+### 🗂️ Estructura general (versión simplificada)
 
 ```text
 /opt/                                   ← Infraestructura base (root, no editable)
@@ -70,11 +70,9 @@ Este diseño permite:
 /var/lib/containerd/                ← Runtime interno (root, no editable)
 ```
 
-# 🧩 Estructura desarrollada (con roles y almacenamiento)
-
 ## 🧠 Explicación por capas
 
-## 🟦 1. Infraestructura base — `/opt`
+### 🟦 1. Infraestructura base — `/opt`
 
 Servicios críticos del sistema:
 
@@ -98,7 +96,7 @@ Servicios críticos del sistema:
 
 - Datos críticos en volúmenes
 
-## 🟩 2. Definición de servicios — `/dockerdata/stacks`
+### 🟩 2. Definición de servicios — `/dockerdata/stacks`
 
 Aquí viven **solo los docker-compose.yml**.
 
@@ -112,7 +110,7 @@ Ventajas:
 
 - No genera desorden
 
-## 🟧 3. Aplicaciones del usuario — `/dockerdata/apps`
+### 🟧 3. Aplicaciones del usuario — `/dockerdata/apps`
 
 Aquí viven **todas las apps**, organizadas por categorías:
 
@@ -136,7 +134,7 @@ Cada servicio tiene su propia carpeta, con:
 
 - Logs
 
-## 🟫 4. Scripts de infraestructura — `/dockerdata/infra`
+### 🟫 4. Scripts de infraestructura — `/dockerdata/infra`
 
 Automatizan todo:
 
