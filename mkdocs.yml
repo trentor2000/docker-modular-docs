@@ -2,7 +2,7 @@ site_name: "Docker Modular — Documentación Oficial"
 site_description: "Infraestructura Docker limpia, modular, reproducible y diseñada para docencia"
 site_author: "Mario Alvarado"
 repo_name: "docker-modular-docs"
-repo_url: "https://github.com/tuusuario/docker-modular-docs"
+repo_url: "https://github.com/trentor2000/docker-modular-docs"
 
 theme:
   name: material

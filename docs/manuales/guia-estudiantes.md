@@ -273,8 +273,6 @@ Sin tocar la infraestructura base.
 
 # 🟫 8. Cómo reconstruir TODO desde cero
 
-
-
 ```bash
 ./infra-rebuild.sh
 ```

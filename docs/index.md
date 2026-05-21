@@ -77,6 +77,8 @@ Su objetivo es que los estudiantes puedan:
      ├── infra-down.sh
      ├── infra-rebuild.sh
      └── stacks-clean.sh
+/home/usuario/.docker-storage/      ← Runtime Docker (root, no editable)
+/var/lib/containerd/                ← Runtime interno (root, no editable)
 ```
 
 Esta estructura garantiza orden, claridad, reproducibilidad y posibilidad de experimentar sin miedo a romper o tener que estar reinstalando el sistema.

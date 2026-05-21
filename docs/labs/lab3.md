@@ -34,16 +34,12 @@ docker network ls
 
 ## **2) Crear dos contenedores dentro de la misma red**
 
-bash
-
 ```bash
 docker run -d --name web1 --network labnet nginx
 docker run -d --name web2 --network labnet nginx
 ```
 
 Verifica:
-
-bash
 
 ```bash
 docker ps
@@ -53,15 +49,11 @@ docker ps
 
 Entra a `web1`:
 
-bash
-
 ```bash
 docker exec -it web1 bash
 ```
 
 Prueba ping a `web2`:
-
-bash
 
 ```bash
 ping web2 -c 3
@@ -81,8 +73,6 @@ docker run -d --name web3 --network isolated nginx
 
 Prueba comunicación desde `web1`:
 
-bash
-
 ```bash
 docker exec -it web1 ping web3 -c 3
 ```
@@ -94,15 +84,11 @@ Esto demuestra **aislamiento entre redes**.
 
 Esto permite que un contenedor actúe como “puente”.
 
-bash
-
 ```bash
 docker network connect isolated web1
 ```
 
 Ahora prueba desde `web3`:
-
-bash
 
 ```bash
 docker exec -it web3 ping web1 -c 3
@@ -112,15 +98,11 @@ docker exec -it web3 ping web1 -c 3
 
 ## **6) Desconectar un contenedor de una red**
 
-bash
-
 ```bash
 docker network disconnect isolated web1
 ```
 
 Prueba de nuevo:
-
-bash
 
 ```bash
 docker exec -it web3 ping web1 -c 3
@@ -132,15 +114,11 @@ docker exec -it web3 ping web1 -c 3
 
 Crea carpeta:
 
-bash
-
 ```bash
 mkdir -p ~/dockerdata/stacks/redes
 ```
 
 Crea `docker-compose.yml`:
-
-yaml
 
 ```yaml
 services:
@@ -165,27 +143,23 @@ networks:
   backend:
 ```
 
-Despliega desde Dockge o terminal:
+Despliega desde Dockge o terminal (recuerda que si habilitas un stack desde terminial no lo podras administrar desde dockge) :
 
-bash
+*<mark>ojo</mark>*
 
 ```bash
-docker compose up -d
+docker compose up -d #inicia un stack desde terminal pero este no sera administrado desde dockge 
 ```
 
 # 🔍 **8) Verificar topología de red**
 
 ### Ver redes creadas:
 
-bash
-
 ```bash
 docker network ls
 ```
 
 ### Ver contenedores dentro de una red:
-
-bash
 
 ```bash
 docker network inspect redes_frontend
@@ -204,8 +178,6 @@ docker network inspect redes_backend
 
 # 🧼 **9) Limpieza del laboratorio**
 
-bash
-
 ```bash
 docker rm -f web1 web2 web3
 docker network rm labnet isolated
@@ -213,15 +185,11 @@ docker network rm labnet isolated
 
 Si usaste Compose:
 
-bash
-
 ```bash
 docker compose down
 ```
 
 Y finalmente:
-
-bash
 
 ```bash
 ./stacks-clean.sh

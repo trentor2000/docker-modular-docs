@@ -33,8 +33,6 @@ Este diseño permite:
 
 # 🗂️ Estructura general (versión simplificada)
 
-
-
 ```text
 /opt/                                   ← Infraestructura base (root, no editable)
  ├── dockge/
@@ -68,18 +66,13 @@ Este diseño permite:
      ├── infra-down.sh
      ├── infra-rebuild.sh
      └── stacks-clean.sh
-
+/home/usuario/.docker-storage/      ← Runtime Docker (root, no editable)
+/var/lib/containerd/                ← Runtime interno (root, no editable)
 ```
 
 # 🧩 Estructura desarrollada (con roles y almacenamiento)
 
-
-
-```text
-
-```
-
-# 🧠 Explicación por capas
+## 🧠 Explicación por capas
 
 ## 🟦 1. Infraestructura base — `/opt`
 

@@ -14,23 +14,21 @@ En este laboratorio, el estudiante aprenderá a:
 
 ## 🔧 **Procedimiento paso a paso**
 
-### 1 Crear un volumen persistente
+1 Crear un volumen persistente
 
-Inicio
+2 Ejecutar un contenedor usando el volumen
 
-### 2 Ejecutar un contenedor usando el volumen
+3 Modificar datos dentro del volumen
 
-### 3 Modificar datos dentro del volumen
+4 Eliminar el contenedor y verificar persistencia
 
-### 4 Eliminar el contenedor y verificar persistencia
+5 Crear un nuevo contenedor usando el mismo volumen
 
-### 5 Crear un nuevo contenedor usando el mismo volumen
+6 Persistencia con Docker Compose
 
-### 6 Persistencia con Docker Compose
+7 Limpiar el entorno
 
-Recomendado
-
-### 7 Limpiar el entorno
+## Guia del laborario 2
 
 Un volumen es una carpeta administrada por Docker que persiste aunque el contenedor se elimine.
 
@@ -74,13 +72,13 @@ El nuevo contenedor reutilizará los datos creados anteriormente.
 
 - Verás el archivo **Hola persistencia** intacto
 
+- 
+
 Ahora usarás un stack para manejar persistencia de forma declarativa.
 
 - Crea carpeta: `mkdir -p ~/dockerdata/stacks/persistencia`
 
 - Crea archivo `docker-compose.yml` con:
-
-
 
 ```yaml
 services:
