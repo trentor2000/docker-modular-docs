@@ -76,6 +76,8 @@ Debe mostrar:
 active
 ```
 
+[nota: en ocasiones ubuntu muestra el estado inactive de systemctl, puedes comprobar si efectivamente esta inactivo con systemctl start o stop docker ]
+
 # 🧩 3. Instalar dependencias
 
 ```bash
@@ -104,6 +106,8 @@ echo \
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
+
+[si se presentan errores en las claves verifica en [Install Docker Engine on Ubuntu | Docker Docs](https://docs.docker.com/engine/install/ubuntu/)]
 
 # 🧪 7. Verificar instalación
 

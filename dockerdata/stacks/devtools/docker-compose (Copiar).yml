@@ -1,0 +1,59 @@
+services:
+  gitea:
+    image: gitea/gitea:1.22
+    container_name: gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__server__DOMAIN=gitea.localhost
+      - GITEA__server__ROOT_URL=http://gitea.localhost/
+    volumes:
+      - gitea-data:/data
+    networks:
+      - devtools
+    ports:
+      - "3001:3000"
+      - "222:22"
+    restart: unless-stopped
+
+  mkdocs:
+    image: squidfunk/mkdocs-material
+    container_name: mkdocs-docs
+    volumes:
+      - /home/trentor/proyectos/docker-modular-docs:/docs
+    networks:
+      - devtools
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime-kuma
+    volumes:
+      - kuma-data:/app/data
+    networks:
+      - devtools
+    ports:
+      - "3002:3001"
+    restart: unless-stopped
+
+  registry:
+    image: registry:2
+    container_name: registry
+    volumes:
+      - registry-data:/var/lib/registry
+    networks:
+      - devtools
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+networks:
+  devtools:
+
+volumes:
+  gitea-data:
+  kuma-data:
+  registry-data:
+

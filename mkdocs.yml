@@ -24,18 +24,37 @@ theme:
     - toc.integrate
 
 markdown_extensions:
-  - admonition
-  - codehilite
+ # - codehilite
+ # - footnotes
+ # - tables
+ # - toc:
+ #     permalink: true
+ # - pymdownx.superfences
+ # - pymdownx.details
+ # - pymdownx.highlight
+ # - pymdownx.tabbed
+ # - pymdownx.emoji
+ # - pymdownx.admonition
+ # Reemplazo crítico: usar la versión de pymdownx para admitir la sintaxis moderna
+  - pymdownx.admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      # Asegura que los emojis funcionen
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true # Números de línea en bloques de código
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true # Estilo moderno para pestañas
+  - pymdownx.keys
   - footnotes
   - tables
   - toc:
       permalink: true
-  - pymdownx.superfences
-  - pymdownx.details
-  - pymdownx.highlight
-  - pymdownx.tabbed
-  - pymdownx.emoji
-
+  - md_in_html # Útil si mezclas HTML directo en los documentos
 plugins:
   - search
   - tags
