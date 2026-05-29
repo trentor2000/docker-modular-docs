@@ -36,7 +36,7 @@ markdown_extensions:
  # - pymdownx.emoji
  # - pymdownx.admonition
  # Reemplazo crítico: usar la versión de pymdownx para admitir la sintaxis moderna
-  - pymdownx.admonition
+ # - pymdownx.admonition
   - pymdownx.details
   - pymdownx.emoji:
       # Asegura que los emojis funcionen
