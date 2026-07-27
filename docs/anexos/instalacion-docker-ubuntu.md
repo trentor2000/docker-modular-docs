@@ -49,8 +49,9 @@ echo \
   https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
 ```
+
+[si se presentan errores en las claves o el repositorio verifica en [Install Docker Engine on Ubuntu | Docker Docs](https://docs.docker.com/engine/install/ubuntu/)]
 
 # 🧩 4. Instalar Docker Engine
 
@@ -87,9 +88,7 @@ Si ves el mensaje de bienvenida, Docker está funcionando correctamente.
 
 Tu arquitectura Docker Modular usa:
 
-```text
-/home/usuario/.docker-storage
-```
+``/home/usuario/.docker-storage
 
 Para configurarlo:
 

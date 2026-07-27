@@ -22,7 +22,7 @@ Este manual te enseña a:
 
 - ejecutar auditorías básicas de tu entorno
 
-Todo basado en la arquitectura modular del curso: **Infraestructura base → Dockge → Stacks → Apps → Datos persistentes**
+Todo basado en la arquitectura modular del curso: **Infraestructura base → Stacks → Apps → Datos persistentes (volumenes)**
 
 # 🧱 1. ¿Qué es Docker?
 
@@ -40,14 +40,17 @@ Los contenedores:
 
 ### Conceptos clave
 
-| Concepto       | Significado                           |
-| -------------- | ------------------------------------- |
-| **Imagen**     | Plantilla de un contenedor            |
-| **Contenedor** | Instancia en ejecución                |
-| **Volumen**    | Carpeta persistente                   |
-| **Bind mount** | Carpeta del host montada directamente |
-| **Red**        | Comunicación entre contenedores       |
-| **Compose**    | Archivo que define servicios o stacks |
+| Concepto          | Significado                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| **Imagen**        | Plantilla de un contenedor                                   |
+| **Contenedor**    | Instancia en ejecución                                       |
+| **Volumen**       | Carpeta persistente                                          |
+| **Bind mount**    | Carpeta del host montada directamente                        |
+| **Named volume**  | Carpeta persistente gestionada por Docker mediante un nombre |
+| **Ruta dinámica** | Ubicación automatizada por Docker mediante lógica abstracta  |
+| **Ruta estatica** | Ruta absoluta fija en el host (frágil y no portable)         |
+| **Red**           | Comunicación entre contenedores                              |
+| **Compose**       | Archivo que define servicios o stacks                        |
 
 # 🧩 2. Arquitectura que usarás en este curso
 

@@ -43,7 +43,7 @@ sudo apt upgrade -y
 
 # 🧩 2. Habilitar systemd en WSL2 (obligatorio para Docker Engine)
 
-Editar el archivo de configuración de WSL:
+Editar el archivo de configuración de WSL: en la terminal de ubuntu
 
 ```bash
 sudo nano /etc/wsl.conf
@@ -56,13 +56,13 @@ Agregar:
 systemd=true
 ```
 
-Salir de WSL:
+Salir de WSL: ojo este comando se ejecuta en la terminal de windows o powershell
 
 ```bash
 wsl.exe --shutdown
 ```
 
-Volver a entrar.
+iniciar ubuntu en wsl2
 
 Verificar:
 
@@ -107,7 +107,7 @@ sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-[si se presentan errores en las claves verifica en [Install Docker Engine on Ubuntu | Docker Docs](https://docs.docker.com/engine/install/ubuntu/)]
+[si se presentan errores en las claves o el repositorio verifica en [Install Docker Engine on Ubuntu | Docker Docs](https://docs.docker.com/engine/install/ubuntu/)]
 
 # 🧪 7. Verificar instalación
 

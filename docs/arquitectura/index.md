@@ -37,37 +37,31 @@ Este diseño permite:
 /opt/                                   ← Infraestructura base (root, no editable)
  ├── dockge/
  ├── portainer/
- ├── watchtower/
- ├── headscale/
- └── traefik/
-
+ ├── traefik/
+ └── otros servicios de infraestructura del sistema docker
 
 /home/usuario/dockerdata/               ← Zona del usuario (editable)
- ├── stacks/                            ← SOLO docker-compose.yml
- │   ├── servicio1/
- │   ├── servicio2/
- │   └── ...
+ ├── stacks/                            ← SOLO docker-compose.yml + config + .env
+ │   └── <stack>/
+ │        ├── docker-compose.yml
+ │        ├── .env                      
+ │        └── config/                   ← Configuración del stack (borrable)
  │
- ├── apps/                              ← TODAS las aplicaciones del usuario
- │   ├── categoria1/
- │   │   ├── servicioA/
- │   │   └── servicioB/
- │   │
- │   ├── categoria2/
- │   │   ├── servicioC/
- │   │   └── servicioD/
- │   │
- │   └── otros/
- │       ├── servicioX/
- │       └── servicioY/
+ ├── apps/                              ← Aplicaciones del usuario (no               tocadas por stacks)
+ │   └── <categoria>/<app>/             ← Ej: IA, redes, seguridad, bases de datos
+ │
+ ├── data/                              ← Datos persistentes (NO borrables)
+ │   ├── <stack>/<servicio>/            ← Modelos, bases vectoriales, cachés
+ │   └── <app>/<datospersistentes>/     ← ✔ Sí, apps también pueden persistir aquí
  │
  └── infra/                             ← Scripts de infraestructura
      ├── infra-up.sh
      ├── infra-down.sh
      ├── infra-rebuild.sh
-     └── stacks-clean.sh
-/home/usuario/.docker-storage/      ← Runtime Docker (root, no editable)
-/var/lib/containerd/                ← Runtime interno (root, no editable)
+     └── otros_scripts_de_infraestructura.sh
+
+/home/usuario/.docker-storage/          ← Runtime Docker (root)
+/var/lib/containerd/                    ← Runtime interno (root)
 ```
 
 ## 🧠 Explicación por capas

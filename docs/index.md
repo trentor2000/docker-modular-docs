@@ -1,12 +1,12 @@
 # 📘 Curso de Docker Modular
 
-### Infraestructura reproducible, limpia y profesional para estudiantes y docentes
+### Infraestructura contenerizada, reproducible, limpia y profesional para estudiantes y docentes
 
 Bienvenido al sitio oficial del curso **Docker Modular**, una arquitectura diseñada para que cualquier estudiante pueda aprender contenedores sin romper su sistema, sin configuraciones complejas y con un entorno totalmente reproducible.
 
-Este sitio contiene:
+En este sitio encontraras entre otros documentos:
 
-- Manuales para estudiantes y docentes
+- Manual para estudiantes y docentes
 
 - Arquitectura completa del entorno
 
@@ -24,9 +24,9 @@ Docker Modular es una arquitectura educativa que separa claramente:
 
 - **Infraestructura base**
 
-- **Gestión de stacks (docker-compose.yml)**
+- **Gestión de stacks**
 
-- **Aplicaciones del usuario (apps/)**
+- **Aplicaciones del usuario**
 
 - **Datos persistentes**
 
@@ -42,80 +42,7 @@ Su objetivo es que los estudiantes puedan:
 
 - aprender buenas prácticas desde el día uno
 
-# 🧱 Arquitectura general
-
-```text
-/opt/                                   ← Infraestructura base (root, no editable)
- ├── dockge/
- ├── portainer/
- ├── watchtower/
- ├── headscale/
- ├── traefik/
- └── otros servicios de infraestructura del sistema docker/
-
-/home/usuario/dockerdata/               ← Zona del usuario (editable)
- ├── stacks/                            ← SOLO docker-compose.yml
- │   ├── servicio1/docker-compose.yml
- │   ├── servicio2/docker-compose.yml
- │   └── ...
- │
- ├── apps/                              ← TODAS las aplicaciones del usuario
- │   ├── categoria1/                    ← Ej: IA, redes, seguridad, bases de datos
- │   │   ├── servicioA/
- │   │   └── servicioB/
- │   │
- │   ├── categoria2/
- │   │   ├── servicioC/
- │   │   └── servicioD/
- │   │
- │   └── otros/                         ← Apps futuras del usuario
- │       ├── servicioX/
- │       └── servicioY/
- │
- └── infra/                             ← Scripts de infraestructura
-     ├── infra-up.sh
-     ├── infra-down.sh
-     ├── infra-rebuild.sh
-     └── stacks-clean.sh
-/home/usuario/.docker-storage/      ← Runtime Docker (root, no editable)
-/var/lib/containerd/                ← Runtime interno (root, no editable)
-```
-
-Esta estructura garantiza orden, claridad, reproducibilidad y posibilidad de experimentar sin miedo a romper o tener que estar reinstalando el sistema.
-
-# 🧭 Navegación del curso
-
-## 📘 Manuales
-
-- **Manual del Estudiante**
-
-- **Manual del Docente**
-
-## 🧩 Arquitectura
-
-- **Infraestructura base**
-
-- **Stacks y datos persistentes**
-
-- **Apps del usuario**
-
-- **Scripts reproducibles**
-
-## 🧪 Laboratorios
-
-- **Laboratorio 1: Primer stack**
-
-- **Laboratorio 2: Redes Docker**
-
-- **Laboratorio 3: Persistencia**
-
-## 🛠 Troubleshooting
-
-- **Errores comunes**
-
-- **Cómo limpiar el entorno**
-
-- **Cómo reconstruir todo**
+- usar el sistema docker modular en sus proyectos (desarollo web, desarollo seguro de aplicaciones, ciclo de vida del desarollo de aplicaciones, redes e infraestructura, etc.)
 
 # 🎯 Objetivo del curso
 
@@ -147,7 +74,44 @@ Por eso esta arquitectura:
 
 - enseña buenas prácticas desde el inicio
 
+# 🧱 Arquitectura general
+
+```text
+/opt/                                   ← Infraestructura base (root, no editable)
+ ├── dockge/
+ ├── portainer/
+ ├── traefik/
+ └── otros servicios de infraestructura del sistema docker
+
+/home/usuario/dockerdata/               ← Zona del usuario (editable)
+ ├── stacks/                            ← SOLO docker-compose.yml + config + .env
+ │   └── <stack1>/
+ │        ├── docker-compose.yml
+ │        ├── .env                      
+ │        └── config/                   ← Configuración del stack (borrable)
+ │
+ ├── apps/                              ← Aplicaciones del usuario (no               tocadas por stacks)
+ │   └── <categoria>/<app>/             ← Ej: IA, redes, seguridad, bases de datos
+ │
+ ├── data/                              ← Datos persistentes (NO borrables)
+ │   ├── <stack>/<servicio>/            ← Modelos, bases vectoriales, cachés
+ │   └── <app>/<datospersistentes>/     
+ │
+ └── infra/                             ← Scripts de infraestructura
+     ├── infra-up.sh
+     ├── infra-down.sh
+     ├── infra-rebuild.sh
+     └── otros_scripts_de_infraestructura.sh
+
+/home/usuario/.docker-storage/          ← Runtime Docker (root)
+/var/lib/containerd/                    ← Runtime interno (root)
+```
+
+Esta estructura garantiza orden, claridad, reproducibilidad y posibilidad de experimentar sin miedo a romper o tener que estar reinstalando el sistema.
+
+
+
 # 🎉 Comienza aquí
 
-👉 **Manual del Estudiante** 
+👉 **[Manual del Estudiante](https://trentor2000.github.io/docker-modular-docs/manuales/guia-estudiantes/)** 
 La mejor forma de iniciar si es tu primera vez con Docker Modular.

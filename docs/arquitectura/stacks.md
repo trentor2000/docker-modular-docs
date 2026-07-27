@@ -102,76 +102,268 @@ restart: unless-stopped
 
 Dockge administra, no ejecuta.
 
-# 🛠️ **4. Plantilla oficial de docker-compose.yml para stacks**
+# 🛠️  **PLANTILLA UNIVERSAL PARA STACKS CON DATOS PERSISTENTES**
+
+## 📁 **Estructura del stack**
+
+```text
+~/dockerdata/stacks/<stack>/
+ ├── docker-compose.yml
+ ├── .env
+ └── config/
+      ├── servicio1/
+      └── servicio2/
+```
+
+## 📁 **Estructura de persistencia**
+
+```text
+~/dockerdata/data/<stack>/
+ ├── servicio1/
+ └── servicio2/**
+```
 
 Esta plantilla es el estándar que usarás en clase:
 
 ```yaml
-version: "3.9" #no necesario ya que el estándar moderno es sin version: porque Docker usa Compose Spec.”
-
 services:
+
   servicio1:
-    image: imagen/servicio1
-    container_name: servicio1
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./data/servicio1:/data
-    environment:
-      - TZ=America/Mexico_City
-    networks:
-      - default
+    image: <imagen_servicio1>
+    container_name: <stack>-servicio1
     restart: unless-stopped
+    user: "${PUID}:${PGID}"
+    env_file:
+      - .env
+    volumes:
+      # Configuración del stack (borrable)
+      - ./config/servicio1:/config
+      # Persistencia real (NO borrable)
+      - ../../data/<stack>/servicio1:/data
+    ports:
+      - "PUERTO_HOST:PUERTO_CONTENEDOR"
+    networks:
+      - red
 
   servicio2:
-    image: imagen/servicio2
-    container_name: servicio2
-    volumes:
-      - ./data/servicio2:/config
+    image: <imagen_servicio2>
+    container_name: <stack>-servicio2
+    restart: unless-stopped
+    user: "${PUID}:${PGID}"
+    env_file:
+      - .env
     depends_on:
       - servicio1
-    restart: unless-stopped
+    volumes:
+      # Configuración del stack (borrable)
+      - ./config/servicio2:/config
+      # Persistencia real (NO borrable)
+      - ../../data/<stack>/servicio2:/data
+    ports:
+      - "PUERTO_HOST:PUERTO_CONTENEDOR"
+    networks:
+      - red
 
 networks:
-  default:
-    name: stack-devtools
+  red:
+    external: false
+
 ```
 
-# 🧪 **5. Ejemplo real: Stack DevTools**
+# 📄 **.env (plantilla universal)**
 
 ```bash
-/home/usuario/dockerdata/stacks/devtools/docker-compose.yml
+PUID=1000
+PGID=1000
+TZ=America/Mexico_City
+```
+
+✔ Evita archivos root
+✔ Compatible con cualquier contenedor moderno
+✔ Portabilidad total
+
+# 🧩 **Reglas oficiales que esta plantilla cumple**
+
+## ✔ `/stacks/<stack>/`
+
+Contiene **solo**:
+
+- `docker-compose.yml`
+
+- `.env`
+
+- `config/`
+
+Todo esto es **borrable** sin riesgo.
+
+## ✔ `/data/<stack>/<servicio>/`
+
+Contiene:
+
+- modelos
+
+- bases vectoriales
+
+- cachés
+
+- datos de usuario
+
+- archivos pesados
+
+Todo esto es **NO borrable** por Dockge.
+
+## ✔ `PUID/PGID`
+
+Evita archivos root y problemas de permisos.
+
+## ✔ Rutas relativas
+
+Garantizan portabilidad y reproducibilidad.
+
+## ✔ Aislamiento modular
+
+Cada stack es autocontenido.
+
+# 🧪 **5. Ejemplo real: Stack ai**
+
+```text
+/home/usuario/dockerdata/stacks/ai/docker-compose.yml
 ```
 
 ```yaml
 services:
-  mkdocs:
-    image: squidfunk/mkdocs-material
-    container_name: mkdocs-docs
-    volumes:
-      - ../../docker-modular-docs:/docs
-    ports:
-      - "8000:8000"
-    restart: unless-stopped
 
-  registry:
-    image: registry:2
-    container_name: registry
-    volumes:
-      - ./registry:/var/lib/registry
-    ports:
-      - "5000:5000"
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ai-ollama
     restart: unless-stopped
+    user: "${PUID}:${PGID}"
+    env_file:
+      - .env
+    volumes:
+      # Configuración del stack (borrable)
+      - ./config/ollama:/root/.ollama/config
+      # Persistencia real (NO borrable)
+      - ../../data/ai/ollama:/root/.ollama/models
+    ports:
+      - "11434:11434"
+    networks:
+      - ai_net
 
-  uptime-kuma:
-    image: louislam/uptime-kuma
-    container_name: uptime-kuma
-    volumes:
-      - ./uptime-kuma:/app/data
-    ports:
-      - "3001:3001"
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: ai-openwebui
     restart: unless-stopped
+    user: "${PUID}:${PGID}"
+    depends_on:
+      - ollama
+    env_file:
+      - .env
+    environment:
+      - OLLAMA_API_BASE=http://ollama:11434
+      - WEBUI_AUTH=False
+      - ENABLE_IMAGE_GENERATION=True
+      - ENABLE_WEB_SEARCH=True
+      - ENABLE_FILE_TOOLS=True
+    volumes:
+      # Configuración del stack (borrable)
+      - ./config/openwebui:/app/backend/config
+      # Persistencia real (NO borrable)
+      - ../../data/ai/openwebui:/app/backend/data
+    ports:
+      - "3000:8080"
+    networks:
+      - ai_net
+
+networks:
+  ai_net:
+    external: false
+
 ```
+
+# 📄 **3. Archivo** `.env`
+
+```text
+PUID=1000
+PGID=1000
+TZ=America/Mexico_City
+```
+
+✔ Evita archivos root
+✔ Permite borrar, migrar, respaldar
+✔ Compatible con cualquier contenedor moderno
+
+# 🧩 **4. ¿Qué va en cada carpeta?**
+
+## `/stacks/ai/config/ollama`
+
+- Configuración del runtime
+
+- Archivos ligeros
+
+- Logs efímeros
+
+## `/data/ai/ollama`
+
+- Modelos descargados
+
+- Blobs
+
+- Manifests
+
+- Cachés pesadas
+
+## `/stacks/ai/config/openwebui`
+
+- Configuración del backend
+
+- Ajustes de UI
+
+- Preferencias del usuario
+
+## `/data/ai/openwebui`
+
+- vector_db
+
+- embeddings
+
+- uploads
+
+- cachés
+
+# 🧠 **5. Reglas oficiales que esta plantilla cumple**
+
+### ✔ Persistencia real en `/data`
+
+Los modelos y bases vectoriales sobreviven:
+
+- recreaciones
+
+- borrados del stack
+
+- reinstalaciones
+
+- migraciones
+
+### ✔ Configuración en `/config`
+
+Borrable sin riesgo.
+
+### ✔ Stacks autocontenidos
+
+Cada stack vive en su propia carpeta.
+
+### ✔ Nada de root
+
+`user: "${PUID}:${PGID}"` evita archivos root.
+
+### ✔ Rutas relativas
+
+Portabilidad total.
+
+### ✔ Dockge-friendly
+
+Dockge solo ve `/stacks`, nunca `/data`.
 
 # 🚀 6. Cómo levantar Apps y Stacks
 
@@ -179,9 +371,9 @@ services:
 
 Las apps ubicadas en `/dockerdata/apps/` se levantan desde terminal:
 
-bash
 
-```
+
+```bash
 cd ~/dockerdata/apps/<categoria>/<app>/
 docker compose up -d
 ```
